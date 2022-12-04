@@ -1,24 +1,29 @@
 package DAOs;
 
 import Entidades.Empleado;
-import Entidades.Habitat;
+import dominio.Habitat;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+import DAOs.*;
 import java.util.List;
 
-public class HabitatsDAO {
+public class HabitatDAO {
 
     public IConexionDB conexion = new ConexionDB();
 
-    public HabitatsDAO() {
+    public HabitatDAO(IConexionDB conexion) {
+        this.conexion = conexion;
     }
 
-    public boolean agregar(Habitat hab, long idContinente) {
+    public boolean agregar(Habitat hab) {
         try {
+            
+            Connection con = conexion.crearConexion();
+            Statement comando = con.createStatement();
             //INSERT INTO `zoologico_dis`.`habitat` (`idhabitat`, `nombre`, `clima`, `tipoVegetacion`) VALUES ('1', 'Desierto', 'Seco', 'Deserta');
             String query = "INSERT INTO `zoologico_dis`.`habitat` (`idhabitat`, `nombre`, `clima`, `tipoVegetacion`) "
                     + "VALUES ('"
@@ -26,21 +31,6 @@ public class HabitatsDAO {
                     + hab.getNombre() + "', '"
                     + hab.getClima() + "', '"
                     + hab.getTipoVegetacion()
-                    + "');";
-            Connection con = conexion.crearConexion();
-            Statement comando = con.createStatement();
-            comando.executeUpdate(query);
-
-            //INSERT INTO `zoologico_dis`.`habitatcontinente` (`idhabitatContinente`, `habitat`, `continente`) VALUES ('1', '1', '1');
-            /*Por default, para el ID de la entrada de zonaItinerario va a utilizar el ID del itinerario, esto es una muy
-            mala idea pero por mientras se queda asi hasta que haya otra forma de darle un ID unico (probablemente obtener el 
-            numero total de entradas de zonaItinerario+1 y hacer eso el ID).
-             */
-            query = "INSERT INTO `zoologico_dis`.`habitatcontinente` (`idhabitatContinente`, `habitat`, `continente`) "
-                    + "VALUES ('"
-                    + hab.getIdHabitat() + "', '"
-                    + hab.getIdHabitat() + "', '"
-                    + idContinente
                     + "');";
             comando.executeUpdate(query);
             con.close();

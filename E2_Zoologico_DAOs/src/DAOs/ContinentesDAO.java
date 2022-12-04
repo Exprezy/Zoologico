@@ -1,6 +1,6 @@
 package DAOs;
 
-import Entidades.Continente;
+import dominio.Continente;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,7 +18,7 @@ public class ContinentesDAO {
         try {
             //INSERT INTO `zoologico_dis`.`continente` (`idcontinente`, `nombre`) VALUES ('1', 'Sur america');
 
-            String query = "INSERT INTO `zoologico_dis`.`continente` (`idcontinente`, `nombre`) "
+            String query = "INSERT INTO `zoologico_dis`.`continente` (`nombre`) "
                     + "VALUES ('" + cont.getIdContinente() + "', '" + cont.getNombre() + "')";
             Connection con = conexion.crearConexion();
             Statement comando = con.createStatement();
@@ -70,9 +70,8 @@ public class ContinentesDAO {
             ResultSet datos = comando.executeQuery(query);
             while (datos.next()) {
                 Continente cont = new Continente();
-                cont.setIdContinente(datos.getLong("idespecie"));
-                cont.setNombre(datos.getString("nombreEspanol"));
-
+                cont.setIdContinente(datos.getLong("idcontinente"));
+                cont.setNombre(datos.getString("nombre"));
                 list.add(cont);
             }
             con.close();
@@ -83,7 +82,7 @@ public class ContinentesDAO {
         }
     }
 
-    public Continente consultarEspecie(long id) {
+    public Continente consultarContinente(long id) {
         try {
             String query = "SELECT * FROM zoologico_dis.especie WHERE idespecie=" + id;
             Connection con = conexion.crearConexion();

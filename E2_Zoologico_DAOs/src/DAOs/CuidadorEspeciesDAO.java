@@ -18,9 +18,8 @@ public class CuidadorEspeciesDAO implements ICuidadorEspeciesDAO{
         try {
             //INSERT INTO `zoologico_dis`.`cuidadorespecie` (`idcuidadorEspecie`, `fechaInicio`, `cuidador`, `especie`) VALUES ('1', '2022-02-16', '1', '1');
 
-            String query="INSERT INTO `zoologico_dis`.`cuidadorespecie` (`idcuidadorEspecie`, `fechaInicio`, `cuidador`, `especie`) "
+            String query="INSERT INTO `zoologico_dis`.`cuidadorespecie` ( `fechaInicio`, `cuidador`, `especie`) "
                     + "VALUES ('"
-                    + ""+id+"', "
                     + "'"+fechaInicio+"', "
                     + "'"+idCuidador+"', "
                     + "'"+idEspecie
