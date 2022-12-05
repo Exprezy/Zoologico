@@ -6,7 +6,7 @@ package Interfaces;
 
 /**
  *
- * @author MoonA
+ * @author xxxxxxxxxxx
  */
 public class DlgRegistrarQueja extends javax.swing.JDialog {
 
