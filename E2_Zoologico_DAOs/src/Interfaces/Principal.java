@@ -17,5 +17,6 @@ public class Principal {
         HabitatContinenteDAO hCDAO = new HabitatContinenteDAO(conexion);
         Habitat habitatY = new Habitat(1, " a", "d ", " s");
         hCDAO.agregar(0, habitatY, 1);
+        System.out.println("hola");
     }
 }
