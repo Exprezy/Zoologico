@@ -32,14 +32,23 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
             if (especiesDAO.consultarTodos().get(i).getNombreEspanol().equalsIgnoreCase(nombre)) {
                 verificarNombre = false;
                 JOptionPane.showMessageDialog(rootPane, "Especie existente");
+                return;
             }
-            break;
         }
         if (txtNombreEspecieAnimal.getText().length() == 0) {
             JOptionPane.showMessageDialog(rootPane, "El nombre es necesario");
         } else if (verificarNombre) {
+            activarCampos();
         }
 
+    }
+    public void activarCampos() {
+        cmboBxHabitats.setEnabled(true);
+        cmboBoxTipoVegetacion.setEnabled(true);
+        txtNombreEspañol.setEnabled(true);
+        txtNombreCientifico.setEnabled(true);
+        txtDescripcionGeneral.setEnabled(true);
+        btnGuardar.setEnabled(true);
     }
 
     /**
@@ -58,7 +67,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         txtNombreCientifico = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtDescripcionGeneral = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnEditarAnimales = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblRegistrarHabitat = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -88,11 +97,11 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
 
         txtDescripcionGeneral.setEnabled(false);
 
-        jButton1.setText("Editar animales");
-        jButton1.setEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarAnimales.setText("Editar animales");
+        btnEditarAnimales.setEnabled(false);
+        btnEditarAnimales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEditarAnimalesActionPerformed(evt);
             }
         });
 
@@ -186,7 +195,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
                                 .addComponent(txtNombreCientifico)
                                 .addComponent(txtNombreEspañol)
                                 .addComponent(txtDescripcionGeneral))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditarAnimales, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
                                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -227,7 +236,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton1))
+                    .addComponent(btnEditarAnimales))
                 .addGap(47, 47, 47)
                 .addComponent(btnGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
@@ -239,10 +248,10 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEditarAnimalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarAnimalesActionPerformed
         // TODO add your handling code here:
         DlgEditarAnimal editarAnimal = new DlgEditarAnimal();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEditarAnimalesActionPerformed
 
     private void txtNombreEspecieAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEspecieAnimalActionPerformed
         // TODO add your handling code here:
@@ -301,12 +310,12 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditarAnimales;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerificarNombre;
     private javax.swing.JComboBox<String> cmboBoxTipoVegetacion;
     private javax.swing.JComboBox<String> cmboBxHabitats;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

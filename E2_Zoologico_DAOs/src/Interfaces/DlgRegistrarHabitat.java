@@ -44,8 +44,11 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
                 return;
             }
         }
-        if (txtNombreHabitat.getText().length() == 0)             JOptionPane.showMessageDialog(rootPane, "El nombre es necesario");
-        else if (verificarNombre)             activarCampos();
+        if (txtNombreHabitat.getText().length() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "El nombre es necesario");
+        } else if (verificarNombre) {
+            activarCampos();
+        }
     }
 
     /**
@@ -55,9 +58,10 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long autoIncrementarIdHabitatC() {
         long contador = 0;
-        for (int i = 0; i < habitatContinenteDAO.consultarTodo().size(); i++) 
+        for (int i = 0; i < habitatContinenteDAO.consultarTodo().size(); i++) {
             contador = habitatContinenteDAO.consultarTodo().get(i).getIdHabitatContinente();
-        
+        }
+
         return contador = contador + 1;
     }
 
@@ -68,9 +72,10 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long autoIncrementarIdHabitat() {
         long contador = 0;
-        for (int i = 0; i < habitatDAO.consultarTodos().size(); i++) 
+        for (int i = 0; i < habitatDAO.consultarTodos().size(); i++) {
             contador = habitatDAO.consultarTodos().get(i).getIdHabitat();
-        
+        }
+
         return contador = contador + 1;
     }
 
@@ -96,10 +101,12 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long obtenerContinente(String nombre) {
         long id = -1;
-        for (int i = 0; i < cDAO.consultarTodos().size(); i++) 
-            if (cDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) 
+        for (int i = 0; i < cDAO.consultarTodos().size(); i++) {
+            if (cDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) {
                 id = cDAO.consultarTodos().get(i).getIdContinente();
-        
+            }
+        }
+
         return id;
     }
 
@@ -109,7 +116,7 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
     public void agregarHabitat() {
         Habitat hab = new Habitat(autoIncrementarIdHabitat(), txtNombreHabitat.getText(), cmboBxClimas.getSelectedItem().toString(), cmboBoxTipoVegetacion.getSelectedItem().toString());
         int cont = 0;
-        while (cont < 1 ) {
+        while (cont < 1) {
             if (this.chkBoxAmerica.isSelected()) {
                 long idContinente = obtenerContinente("América");
                 JOptionPane.showMessageDialog(rootPane, idContinente);
@@ -135,8 +142,8 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
                 long idContinente = obtenerContinente("Oceanía");
                 habitatContinenteDAO.agregar(autoIncrementarIdHabitatC(), hab, idContinente);
                 cont++;
-            } 
-            if(cont < 1) {
+            }
+            if (cont < 1) {
                 JOptionPane.showMessageDialog(rootPane, "Es necesario elegir un continente");
 
             }
