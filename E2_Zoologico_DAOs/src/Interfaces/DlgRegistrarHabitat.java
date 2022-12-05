@@ -44,12 +44,8 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
             }
             break;
         }
-        if (txtNombreHabitat.getText().length() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "El nombre es necesario");
-        } else if (verificarNombre) {
-            activarCampos();
-        }
-
+        if (txtNombreHabitat.getText().length() == 0)             JOptionPane.showMessageDialog(rootPane, "El nombre es necesario");
+        else if (verificarNombre)             activarCampos();
     }
 
     /**
@@ -59,9 +55,9 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long autoIncrementarIdHabitatC() {
         long contador = 0;
-        for (int i = 0; i < habitatContinenteDAO.consultarTodo().size(); i++) {
+        for (int i = 0; i < habitatContinenteDAO.consultarTodo().size(); i++) 
             contador = habitatContinenteDAO.consultarTodo().get(i).getIdHabitatContinente();
-        }
+        
         return contador = contador + 1;
     }
 
@@ -72,9 +68,9 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long autoIncrementarIdHabitat() {
         long contador = 0;
-        for (int i = 0; i < habitatDAO.consultarTodos().size(); i++) {
+        for (int i = 0; i < habitatDAO.consultarTodos().size(); i++) 
             contador = habitatDAO.consultarTodos().get(i).getIdHabitat();
-        }
+        
         return contador = contador + 1;
     }
 
@@ -100,11 +96,10 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long obtenerContinente(String nombre) {
         long id = -1;
-        for (int i = 0; i < cDAO.consultarTodos().size(); i++) {
-            if (cDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) {
+        for (int i = 0; i < cDAO.consultarTodos().size(); i++) 
+            if (cDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) 
                 id = cDAO.consultarTodos().get(i).getIdContinente();
-            }
-        }
+        
         return id;
     }
 
@@ -363,61 +358,16 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnVerificarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarNombreActionPerformed
-        // TODO add your handling code here:
         verificarNombre(txtNombreHabitat.getText());
     }//GEN-LAST:event_btnVerificarNombreActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
         agregarHabitat();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(DlgRegistrarHabitat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(DlgRegistrarHabitat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(DlgRegistrarHabitat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(DlgRegistrarHabitat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the dialog */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                DlgRegistrarHabitat dialog = new DlgRegistrarHabitat(new javax.swing.JFrame(), true);
-//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-//                    @Override
-//                    public void windowClosing(java.awt.event.WindowEvent e) {
-//                        System.exit(0);
-//                    }
-//                });
-//                dialog.setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
