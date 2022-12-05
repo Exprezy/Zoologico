@@ -1,6 +1,6 @@
 package DAOs;
 
-import Entidades.Empleado;
+import dominio.Empleado;
 import dominio.Habitat;
 import java.sql.Connection;
 import java.sql.Date;

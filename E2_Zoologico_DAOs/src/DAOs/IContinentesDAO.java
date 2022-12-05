@@ -1,6 +1,6 @@
 package DAOs;
 
-import Entidades.Continente;
+import dominio.Continente;
 import java.util.List;
 
 public interface IContinentesDAO {

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import Entidades.EspecieCuidador;
+import dominio.EspecieCuidador;
 
 public class EspeciesCuidadoresDAO implements IEspeciesCuidadoresDAO{
     public IConexionDB conexion = new ConexionDB();

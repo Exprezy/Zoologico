@@ -1,6 +1,6 @@
 package DAOs;
 
-import Entidades.Especie;
+import dominio.Especie;
 import java.util.List;
 
 public interface IEspeciesDAO {

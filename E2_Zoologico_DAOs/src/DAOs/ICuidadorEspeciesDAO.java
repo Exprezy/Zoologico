@@ -1,6 +1,6 @@
 package DAOs;
 
-import Entidades.CuidadorEspecie;
+import dominio.CuidadorEspecie;
 import java.sql.Date;
 import java.util.List;
 

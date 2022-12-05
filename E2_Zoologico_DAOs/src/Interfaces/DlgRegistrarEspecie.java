@@ -48,6 +48,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         txtNombreEspañol.setEnabled(true);
         txtNombreCientifico.setEnabled(true);
         txtDescripcionGeneral.setEnabled(true);
+        btnEditarAnimales.setEnabled(true);
         btnGuardar.setEnabled(true);
     }
 

@@ -1,7 +1,7 @@
 package DAOs;
 
-import Entidades.Empleado;
-import Entidades.Itinerario;
+import dominio.Empleado;
+import dominio.Itinerario;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;

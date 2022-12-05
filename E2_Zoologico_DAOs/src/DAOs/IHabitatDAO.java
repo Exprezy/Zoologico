@@ -4,7 +4,7 @@
  */
 package DAOs;
 
-import Entidades.Habitat;
+import dominio.Habitat;
 import java.util.List;
 
 /**

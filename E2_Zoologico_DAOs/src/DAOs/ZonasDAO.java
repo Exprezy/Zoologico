@@ -1,6 +1,6 @@
 package DAOs;
-import Entidades.Itinerario;
-import Entidades.Zona;
+import dominio.Itinerario;
+import dominio.Zona;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

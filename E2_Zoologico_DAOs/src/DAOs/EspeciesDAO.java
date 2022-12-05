@@ -1,6 +1,6 @@
 package DAOs;
 
-import Entidades.Especie;
+import dominio.Especie;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
