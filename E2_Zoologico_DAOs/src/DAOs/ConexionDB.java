@@ -7,7 +7,7 @@ public class ConexionDB implements IConexionDB{
     
     public String cadenaConexion="jdbc:mysql://localhost/zoologico_dis";
     public String usuario="root";
-    public String password="210568";
+    public String password="daniel05";
 
     public ConexionDB() {}    
 
