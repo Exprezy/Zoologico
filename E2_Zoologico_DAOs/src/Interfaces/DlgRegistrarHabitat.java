@@ -20,7 +20,7 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
     IConexionDB conexion = new ConexionDB();
     HabitatDAO habitatDAO = new HabitatDAO(conexion);
     HabitatContinenteDAO habitatContinenteDAO = new HabitatContinenteDAO(conexion);
-    ContinentesDAO cDAO = new ContinentesDAO();
+    ContinentesDAO continentesDAO = new ContinentesDAO();
 
     /**
      * Creates new form DlgRegistrarHabitat
@@ -101,9 +101,9 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
      */
     public long obtenerContinente(String nombre) {
         long id = -1;
-        for (int i = 0; i < cDAO.consultarTodos().size(); i++) {
-            if (cDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) {
-                id = cDAO.consultarTodos().get(i).getIdContinente();
+        for (int i = 0; i < continentesDAO.consultarTodos().size(); i++) {
+            if (continentesDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) {
+                id = continentesDAO.consultarTodos().get(i).getIdContinente();
             }
         }
 

@@ -40,8 +40,25 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         } else if (verificarNombre) {
             activarCampos();
         }
-
     }
+    
+    public long autoIncrementarIdEspecieCuidador() {
+        long contador = 0;
+        for (int i = 0; i < especiesCuidadoresDAO.consultarTodos().size(); i++) {
+            contador = especiesCuidadoresDAO.consultarTodos().get(i).getIdCuidador();
+        }
+        return contador = contador + 1;
+    }
+    
+    public long autoIncrementarIdEspecie() {
+        long contador = 0;
+        for (int i = 0; i < especiesDAO.consultarTodos().size(); i++) {
+            contador = especiesDAO.consultarTodos().get(i).getIdEspecie();
+        }
+
+        return contador = contador + 1;
+    }
+    
     public void activarCampos() {
         cmboBxHabitats.setEnabled(true);
         cmboBoxTipoVegetacion.setEnabled(true);
