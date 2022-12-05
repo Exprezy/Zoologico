@@ -41,8 +41,8 @@ public class DlgRegistrarHabitat extends javax.swing.JDialog {
             if (habitatDAO.consultarTodos().get(i).getNombre().equalsIgnoreCase(nombre)) {
                 verificarNombre = false;
                 JOptionPane.showMessageDialog(rootPane, "Habitat existente");
+                return;
             }
-            break;
         }
         if (txtNombreHabitat.getText().length() == 0)             JOptionPane.showMessageDialog(rootPane, "El nombre es necesario");
         else if (verificarNombre)             activarCampos();
