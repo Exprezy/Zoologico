@@ -33,7 +33,7 @@ public class QuejaDAO implements IQuejaDAO {
             //Creamos un objeto que empaquetará el comando SQL que enviaremos a la BD
             Statement comando = conexion.createStatement();
 
-            String codigoSQL = String.format("INSERT INTO queja(texto) VALUES('%d')",
+            String codigoSQL = String.format("INSERT INTO queja(texto) VALUES('%s')",
                     queja.getTexto());
             registrosAfectados = comando.executeUpdate(codigoSQL);
             conexion.close();
