@@ -65,8 +65,10 @@ public class QuejaDAO implements IQuejaDAO {
             //se llega al final de los resultados
             while (resultado.next()) {
                 Long idQueja = resultado.getLong("idQueja");
+                String nombre = resultado.getString("nombre");
+                String telefono = resultado.getString("telefono");
                 String texto = resultado.getString("texto");
-                queja = new Queja(idQueja, texto);
+                queja = new Queja(nombre, telefono, texto);
                 listaQuejas.add(queja);
             }
         } catch (SQLException e) {
