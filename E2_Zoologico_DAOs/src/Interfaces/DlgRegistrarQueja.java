@@ -19,17 +19,15 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombreGuia = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cmbBoxFechasItinerario = new javax.swing.JComboBox<String>();
         btnEnviarQueja = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblRegistrarHabitat = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cmbBoxNombresItinerarios = new javax.swing.JComboBox<String>();
+        cmbBoxNombresItinerarios = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaQueja = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -39,15 +37,11 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel2.setText("Fechas del itinerario:");
-
         jLabel4.setText("Nombre del guía:");
 
         txtNombreGuia.setEnabled(false);
 
         jLabel7.setText("Escribir queja:");
-
-        cmbBoxFechasItinerario.setEnabled(false);
 
         btnEnviarQueja.setText("Enviar");
         btnEnviarQueja.setEnabled(false);
@@ -93,7 +87,12 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Nombre de itinerarios:");
 
-        cmbBoxNombresItinerarios.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbBoxNombresItinerarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el itinerario", "a" }));
+        cmbBoxNombresItinerarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBoxNombresItinerariosActionPerformed(evt);
+            }
+        });
 
         txtAreaQueja.setColumns(20);
         txtAreaQueja.setRows(5);
@@ -134,12 +133,10 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cmbBoxNombresItinerarios, 0, 407, Short.MAX_VALUE)
-                                    .addComponent(cmbBoxFechasItinerario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtNombreGuia)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,11 +152,7 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cmbBoxNombresItinerarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbBoxFechasItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtNombreGuia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,7 +168,7 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegresar)
                     .addComponent(btnEnviarQueja))
@@ -192,17 +185,32 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
 
     private void btnEnviarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarQuejaActionPerformed
         // TODO add your handling code here:
-        Queja qj = new Queja(WIDTH, txtAreaQueja.getText(), txtNombre.getText(), txtTelefono.getText());
+        Queja qj = new Queja(1, txtAreaQueja.getText(), txtNombre.getText(), txtTelefono.getText());
     }//GEN-LAST:event_btnEnviarQuejaActionPerformed
+
+    private void cmbBoxNombresItinerariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBoxNombresItinerariosActionPerformed
+        // TODO add your handling code here:
+        if (cmbBoxNombresItinerarios.getSelectedIndex()!=0) {
+            txtNombreGuia.setEnabled(true);
+            txtAreaQueja.setEnabled(true);
+            txtTelefono.setEnabled(true);
+            txtNombre.setEnabled(true);
+            btnEnviarQueja.setEnabled(true);
+        } else {
+            txtNombreGuia.setEnabled(false);
+            txtAreaQueja.setEnabled(false);
+            txtTelefono.setEnabled(false);
+            txtNombre.setEnabled(false);
+            btnEnviarQueja.setEnabled(false);
+        }
+    }//GEN-LAST:event_cmbBoxNombresItinerariosActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviarQueja;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JComboBox<String> cmbBoxFechasItinerario;
     private javax.swing.JComboBox<String> cmbBoxNombresItinerarios;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
