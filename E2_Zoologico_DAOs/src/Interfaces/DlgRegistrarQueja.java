@@ -1,8 +1,12 @@
 package Interfaces;
+import DAOs.ConexionDB;
+import DAOs.IConexionDB;
+import DAOs.IQuejaDAO;
 import dominio.Queja;
-
+import DAOs.QuejaDAO;
+import javax.swing.JOptionPane;
 public class DlgRegistrarQueja extends javax.swing.JDialog {
-    
+    IConexionDB conexion = new ConexionDB();
     public DlgRegistrarQueja() {
         initComponents();
         this.setVisible(true);
@@ -186,6 +190,11 @@ public class DlgRegistrarQueja extends javax.swing.JDialog {
     private void btnEnviarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarQuejaActionPerformed
         // TODO add your handling code here:
         Queja qj = new Queja(1, txtAreaQueja.getText(), txtNombre.getText(), txtTelefono.getText());
+        IQuejaDAO qDAO = new QuejaDAO(conexion);
+        if (qDAO.agregar(qj)) {
+            JOptionPane.showMessageDialog(rootPane, "Queja agregada con exito");
+        } else JOptionPane.showMessageDialog(rootPane, "Hubo error agregando queja");
+        
     }//GEN-LAST:event_btnEnviarQuejaActionPerformed
 
     private void cmbBoxNombresItinerariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBoxNombresItinerariosActionPerformed
