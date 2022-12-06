@@ -6,7 +6,10 @@ package Interfaces;
 
 import javax.swing.JOptionPane;
 import DAOs.*;
+import dominio.Empleado;
 import dominio.Especie;
+import dominio.Habitat;
+import java.util.List;
 
 /**
  *
@@ -16,6 +19,8 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
 
     IConexionDB conexion = new ConexionDB();
     EspeciesDAO especiesDAO = new EspeciesDAO();
+    HabitatDAO habitatDAO = new HabitatDAO(conexion);
+    EmpleadosDAO empleadosDAO = new EmpleadosDAO();
     EspeciesCuidadoresDAO especiesCuidadoresDAO = new EspeciesCuidadoresDAO();
 
     /**
@@ -24,6 +29,14 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
     public DlgRegistrarEspecie() {
         initComponents();
         this.setVisible(true);
+        List<Habitat> listaHabitats = habitatDAO.consultarTodos();
+        for (int i = 0; i < listaHabitats.size(); i++) {
+            cmboBxHabitats.addItem(listaHabitats.get(i).getNombre());
+        }
+        List<Empleado> listaEmpleados = empleadosDAO.consultarTodos();
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            cmboBoxCuidador.addItem(listaEmpleados.get(i).getNombre());
+        }
     }
 
     public void verificarNombre(String nombre) {
@@ -61,7 +74,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
     
     public void activarCampos() {
         cmboBxHabitats.setEnabled(true);
-        cmboBoxTipoVegetacion.setEnabled(true);
+        cmboBoxCuidador.setEnabled(true);
         txtNombreEspañol.setEnabled(true);
         txtNombreCientifico.setEnabled(true);
         txtDescripcionGeneral.setEnabled(true);
@@ -78,7 +91,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmboBoxTipoVegetacion = new javax.swing.JComboBox<>();
+        cmboBoxCuidador = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNombreEspañol = new javax.swing.JTextField();
@@ -101,7 +114,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar especie");
 
-        cmboBoxTipoVegetacion.setEnabled(false);
+        cmboBoxCuidador.setEnabled(false);
 
         jLabel5.setText("Nombre en español:");
 
@@ -209,7 +222,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
                                     .addGap(18, 18, 18)
                                     .addComponent(btnVerificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(cmboBxHabitats, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmboBoxTipoVegetacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmboBoxCuidador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtNombreCientifico)
                                 .addComponent(txtNombreEspañol)
                                 .addComponent(txtDescripcionGeneral))
@@ -238,7 +251,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cmboBoxTipoVegetacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmboBoxCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -332,7 +345,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerificarNombre;
-    private javax.swing.JComboBox<String> cmboBoxTipoVegetacion;
+    private javax.swing.JComboBox<String> cmboBoxCuidador;
     private javax.swing.JComboBox<String> cmboBxHabitats;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

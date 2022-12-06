@@ -49,7 +49,7 @@
                                   <Component id="btnVerificarNombre" min="-2" pref="159" max="-2" attributes="0"/>
                               </Group>
                               <Component id="cmboBxHabitats" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cmboBoxTipoVegetacion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cmboBoxCuidador" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNombreCientifico" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNombreEspañol" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtDescripcionGeneral" alignment="0" max="32767" attributes="0"/>
@@ -88,7 +88,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmboBoxTipoVegetacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmboBoxCuidador" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -120,7 +120,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="cmboBoxTipoVegetacion">
+    <Component class="javax.swing.JComboBox" name="cmboBoxCuidador">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
