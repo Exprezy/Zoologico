@@ -14,7 +14,8 @@ public class Queja {
      * Atributos de la clase queja
      */
     private long idQueja;
-    private String texto;
+    private String texto, nombre;
+    public long telefono;
 
     /**
      * Constructor por omisión
