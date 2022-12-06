@@ -4,12 +4,24 @@
  */
 package Interfaces;
 
+import DAOs.*;
+import dominio.*;
+import java.util.LinkedList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MoonA
  */
 public class DlgRegistrarItinerario extends javax.swing.JDialog {
 
+    IConexionDB conexion = new ConexionDB();
+    ItinerariosDAO itinerarioDAO = new ItinerariosDAO();
+    ZonasDAO zonasDAO = new ZonasDAO();
+    GuiaDAO guiaDAO = new GuiaDAO(conexion);
+    EmpleadosDAO empleadoDAO = new EmpleadosDAO();
+    
     /**
      * Creates new form DlgRegistrarItinerario
      */
@@ -18,6 +30,52 @@ public class DlgRegistrarItinerario extends javax.swing.JDialog {
         this.setVisible(true);
     }
 
+    private void llenarTablaZonas() {
+        List<Zona> listaZonas = this.zonasDAO.consultarTodos();
+
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblZonas.getModel();
+
+        modeloTabla.setRowCount(0);
+
+        listaZonas.forEach(zona -> {
+            Object[] fila = new Object[3];
+            fila[0] = zona.getIdZona();
+            fila[1] = zona.getNombreZona();
+            fila[2] = zona.getExtension();
+            modeloTabla.addRow(fila);
+        });
+    }
+    
+    public List<Empleado> obtenerGuia(){
+        List<Empleado> listaGuias = new LinkedList<>();
+        for (int i = 0; i < guiaDAO.consultarTodo().size(); i++) {
+            for (int j = 0; j < empleadoDAO.consultarTodos().size(); j++) {
+                if (guiaDAO.consultarTodo().get(i).getIdGuia() == empleadoDAO.consultarTodos().get(i).getIdEmpleado()) {
+                    listaGuias.add(empleadoDAO.consultarTodos().get(i));
+                }
+            }
+        }
+        return listaGuias;
+    }
+    
+    private void llenarTablaGuias() {
+        List<Zona> listaZonas = this.zonasDAO.consultarTodos();
+
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblZonas.getModel();
+
+        modeloTabla.setRowCount(0);
+
+        listaZonas.forEach(zona -> {
+            Object[] fila = new Object[3];
+            fila[0] = zona.getIdZona();
+            fila[1] = zona.getNombreZona();
+            fila[2] = zona.getExtension();
+            modeloTabla.addRow(fila);
+        });
+    }
+    
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,15 +158,30 @@ public class DlgRegistrarItinerario extends javax.swing.JDialog {
 
         tblZonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id zona", "Nombre", "Extensión"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblZonas);
 
         tblGuias.setModel(new javax.swing.table.DefaultTableModel(
