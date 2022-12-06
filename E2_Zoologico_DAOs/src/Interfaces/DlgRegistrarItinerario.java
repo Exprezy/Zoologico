@@ -16,8 +16,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DlgRegistrarItinerario extends javax.swing.JDialog {
 
+    IConexionDB conexion = new ConexionDB();
     ItinerariosDAO itinerarioDAO = new ItinerariosDAO();
     ZonasDAO zonasDAO = new ZonasDAO();
+    GuiaDAO guiaDAO = new GuiaDAO(conexion);
+    EmpleadosDAO empleadoDAO = new EmpleadosDAO();
     
     /**
      * Creates new form DlgRegistrarItinerario
@@ -43,11 +46,16 @@ public class DlgRegistrarItinerario extends javax.swing.JDialog {
         });
     }
     
-    public List<Guia> obtenerGuia(){
-        List<Guia> listaGuias = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
-            
+    public List<Empleado> obtenerGuia(){
+        List<Empleado> listaGuias = new LinkedList<>();
+        for (int i = 0; i < guiaDAO.consultarTodo().size(); i++) {
+            for (int j = 0; j < empleadoDAO.consultarTodos().size(); j++) {
+                if (guiaDAO.consultarTodo().get(i).getIdGuia() == empleadoDAO.consultarTodos().get(i).getIdEmpleado()) {
+                    listaGuias.add(empleadoDAO.consultarTodos().get(i));
+                }
+            }
         }
+        return listaGuias;
     }
     
     private void llenarTablaGuias() {
