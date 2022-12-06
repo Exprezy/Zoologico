@@ -14,8 +14,8 @@ public class Queja {
      * Atributos de la clase queja
      */
     private long idQueja;
-    private String texto, nombre;
-    public long telefono;
+    private String texto, nombre;    
+    public String telefono;
 
     /**
      * Constructor por omisión
@@ -34,6 +34,14 @@ public class Queja {
         this.texto = texto;
     }
 
+    public Queja(long idQueja, String texto, String nombre, String telefono) {
+        this.idQueja = idQueja;
+        this.texto = texto;
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+    
+
     public long getIdQueja() {
         return idQueja;
     }
@@ -48,6 +56,22 @@ public class Queja {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     @Override
