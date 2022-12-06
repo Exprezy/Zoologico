@@ -46,6 +46,7 @@ public class DlgRegistrarItinerario extends javax.swing.JDialog {
         });
     }
     
+    
     public List<Empleado> obtenerGuia(){
         List<Empleado> listaGuias = new LinkedList<>();
         for (int i = 0; i < guiaDAO.consultarTodo().size(); i++) {
@@ -59,17 +60,17 @@ public class DlgRegistrarItinerario extends javax.swing.JDialog {
     }
     
     private void llenarTablaGuias() {
-        List<Zona> listaZonas = this.zonasDAO.consultarTodos();
+        List<Empleado> listaEmpleados = this.obtenerGuia();
 
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblZonas.getModel();
 
         modeloTabla.setRowCount(0);
 
-        listaZonas.forEach(zona -> {
+        listaEmpleados.forEach(empleado -> {
             Object[] fila = new Object[3];
-            fila[0] = zona.getIdZona();
-            fila[1] = zona.getNombreZona();
-            fila[2] = zona.getExtension();
+            fila[0] = empleado.getIdEmpleado();
+            fila[1] = empleado.getNombre();
+            fila[2] = empleado.get;
             modeloTabla.addRow(fila);
         });
     }
