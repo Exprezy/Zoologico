@@ -6,6 +6,10 @@
             <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/dominio/Queja.java</file>
             <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/DAOs/HabitatDAO.java</file>
             <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/Interfaces/DlgRegistrarQueja.java</file>
+            <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/Interfaces/DlgRegistrarItinerario.java</file>
+            <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/DAOs/EmpleadosDAO.java</file>
+            <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/Interfaces/DlgRegistrarEspecie.java</file>
+            <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/DAOs/GuiaDAO.java</file>
             <file>file:/E:/Documents/github%20reps/Zoologico/E2_Zoologico_DAOs/src/DAOs/QuejaDAO.java</file>
         </group>
     </open-files>
