@@ -14,9 +14,8 @@ public class Queja {
      * Atributos de la clase queja
      */
     private long idQueja;
-    private String nombre;
-    private String telefono;
-    private String texto;
+    private String texto, nombre;    
+    public String telefono;
 
     /**
      * Constructor por omisión
@@ -27,17 +26,38 @@ public class Queja {
     /**
      * Constructor que inicializa los atributos de la clase
      *
-     * @param nombre
-     * @param telefono
      * @param idQueja
      * @param texto
      */
-    public Queja(String nombre, String telefono, String texto) {
-        this.nombre = nombre;
-        this.telefono = telefono;
+    public Queja(long idQueja, String texto) {
+        this.idQueja = idQueja;
         this.texto = texto;
     }
 
+    public Queja(long idQueja, String texto, String nombre, String telefono) {
+        this.idQueja = idQueja;
+        this.texto = texto;
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+    
+
+    public long getIdQueja() {
+        return idQueja;
+    }
+
+    public void setIdQueja(long idQueja) {
+        this.idQueja = idQueja;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -54,29 +74,9 @@ public class Queja {
         this.telefono = telefono;
     }
 
-    
-    
-    public long getIdQueja() {
-        return idQueja;
-    }
-
-    public void setIdQueja(long idQueja) {
-        this.idQueja = idQueja;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
     @Override
     public String toString() {
-        return "Queja{" + "idQueja=" + idQueja + ", nombre=" + nombre + ", telefono=" + telefono + ", texto=" + texto + '}';
+        return "Queja{" + "idQueja=" + idQueja + ", texto=" + texto + '}';
     }
-
-    
 
 }

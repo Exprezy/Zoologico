@@ -49,7 +49,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -66,6 +66,7 @@ public class FrmMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        btnRegistrarHabitat.setIcon(new javax.swing.ImageIcon("C:\\Users\\MoonA\\Desktop\\E2_Zoologico_DAOs\\E2_Zoologico_DAOs\\iconosDiseño\\Plus_icon-icons.com_71848(1).png")); // NOI18N
         btnRegistrarHabitat.setText("Registrar hábitat");
         btnRegistrarHabitat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +74,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnRegistrarEspecie.setIcon(new javax.swing.ImageIcon("C:\\Users\\MoonA\\Desktop\\E2_Zoologico_DAOs\\E2_Zoologico_DAOs\\iconosDiseño\\Plus_icon-icons.com_71848(1).png")); // NOI18N
         btnRegistrarEspecie.setText("Registrar/Actualizar especie");
         btnRegistrarEspecie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +82,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnRegistrarItinerario.setIcon(new javax.swing.ImageIcon("C:\\Users\\MoonA\\Desktop\\E2_Zoologico_DAOs\\E2_Zoologico_DAOs\\iconosDiseño\\Plus_icon-icons.com_71848(1).png")); // NOI18N
         btnRegistrarItinerario.setText("Registrar/Actualizar itinerario");
         btnRegistrarItinerario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +90,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnRegistrarQueja.setIcon(new javax.swing.ImageIcon("C:\\Users\\MoonA\\Desktop\\E2_Zoologico_DAOs\\E2_Zoologico_DAOs\\iconosDiseño\\Plus_icon-icons.com_71848(1).png")); // NOI18N
         btnRegistrarQueja.setText("Registrar una queja");
         btnRegistrarQueja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +98,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\MoonA\\Desktop\\E2_Zoologico_DAOs\\E2_Zoologico_DAOs\\iconosDiseño\\session_exit_sign_out_log_logout_ecommerce_icon_224958(1).png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +118,7 @@ public class FrmMenu extends javax.swing.JFrame {
                     .addComponent(btnRegistrarEspecie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRegistrarItinerario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRegistrarQueja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalir)
