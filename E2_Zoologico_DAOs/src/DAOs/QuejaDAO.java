@@ -33,7 +33,9 @@ public class QuejaDAO implements IQuejaDAO {
             //Creamos un objeto que empaquetará el comando SQL que enviaremos a la BD
             Statement comando = conexion.createStatement();
 
-            String codigoSQL = String.format("INSERT INTO queja(texto) VALUES('%s')",
+            String codigoSQL = String.format("INSERT INTO queja(nombre, telefono, texto) VALUES('%s', '%s', '%s')",
+                    queja.getNombre(),
+                    queja.getTelefono(),
                     queja.getTexto());
             registrosAfectados = comando.executeUpdate(codigoSQL);
             conexion.close();
@@ -63,8 +65,10 @@ public class QuejaDAO implements IQuejaDAO {
             //se llega al final de los resultados
             while (resultado.next()) {
                 Long idQueja = resultado.getLong("idQueja");
+                String nombre = resultado.getString("nombre");
+                String telefono = resultado.getString("telefono");
                 String texto = resultado.getString("texto");
-                queja = new Queja(idQueja, texto);
+                queja = new Queja(nombre, telefono, texto);
                 listaQuejas.add(queja);
             }
         } catch (SQLException e) {

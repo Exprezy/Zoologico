@@ -53,7 +53,7 @@
                       <Component id="btnRegistrarItinerario" max="32767" attributes="0"/>
                       <Component id="btnRegistrarQueja" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="153" max="32767" attributes="0"/>
+                  <EmptySpace pref="162" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -92,7 +92,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="576" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="516" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -128,9 +128,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnRegistrarHabitat">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\MoonA\Desktop\E2_Zoologico_DAOs\E2_Zoologico_DAOs\iconosDise&#xf1;o\Plus_icon-icons.com_71848(1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Registrar h&#xe1;bitat"/>
           </Properties>
           <Events>
@@ -139,9 +136,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRegistrarEspecie">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\MoonA\Desktop\E2_Zoologico_DAOs\E2_Zoologico_DAOs\iconosDise&#xf1;o\Plus_icon-icons.com_71848(1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Registrar/Actualizar especie"/>
           </Properties>
           <Events>
@@ -150,9 +144,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRegistrarItinerario">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\MoonA\Desktop\E2_Zoologico_DAOs\E2_Zoologico_DAOs\iconosDise&#xf1;o\Plus_icon-icons.com_71848(1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Registrar/Actualizar itinerario"/>
           </Properties>
           <Events>
@@ -161,9 +152,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRegistrarQueja">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\MoonA\Desktop\E2_Zoologico_DAOs\E2_Zoologico_DAOs\iconosDise&#xf1;o\Plus_icon-icons.com_71848(1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Registrar una queja"/>
           </Properties>
           <Events>
@@ -172,9 +160,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSalir">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\MoonA\Desktop\E2_Zoologico_DAOs\E2_Zoologico_DAOs\iconosDise&#xf1;o\session_exit_sign_out_log_logout_ecommerce_icon_224958(1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
