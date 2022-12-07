@@ -6,10 +6,9 @@ package Interfaces;
 
 import javax.swing.JOptionPane;
 import DAOs.*;
+import dominio.Empleado;
 import dominio.Especie;
 import dominio.Habitat;
-import dominio.Empleado;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +22,6 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
     HabitatDAO habitatDAO = new HabitatDAO(conexion);
     EmpleadosDAO empleadosDAO = new EmpleadosDAO();
     EspeciesCuidadoresDAO especiesCuidadoresDAO = new EspeciesCuidadoresDAO();
-    ArrayList<Long> listaHabitatId = new ArrayList<>();
 
     /**
      * Creates new form DlgRegistrarEspecie
@@ -34,7 +32,6 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         List<Habitat> listaHabitats = habitatDAO.consultarTodos();
         for (int i = 0; i < listaHabitats.size(); i++) {
             cmboBxHabitats.addItem(listaHabitats.get(i).getNombre());
-            listaHabitatId.add(listaHabitats.get(i).getIdHabitat());
         }
         List<Empleado> listaEmpleados = empleadosDAO.consultarTodos();
         for (int i = 0; i < listaEmpleados.size(); i++) {
@@ -58,22 +55,14 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         }
     }
     
-    public void agregarEspecie() {
-        Especie especie = new Especie(autoIncrementarIdEspecie(), WIDTH, txtNombreEspañol.getText(),
-                txtNombreCientifico.getText(), txtDescripcionGeneral.getText());
-        long idHabitat = (long) cmboBxHabitats.getSelectedIndex();
-        
-        especiesDAO.agregar(especie, idHabitat);
-    }
-
-    public long autoIncrementarIdCuidador() {
+    public long autoIncrementarIdEspecieCuidador() {
         long contador = 0;
         for (int i = 0; i < especiesCuidadoresDAO.consultarTodos().size(); i++) {
             contador = especiesCuidadoresDAO.consultarTodos().get(i).getIdCuidador();
         }
         return contador = contador + 1;
     }
-
+    
     public long autoIncrementarIdEspecie() {
         long contador = 0;
         for (int i = 0; i < especiesDAO.consultarTodos().size(); i++) {
@@ -82,7 +71,7 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
 
         return contador = contador + 1;
     }
-
+    
     public void activarCampos() {
         cmboBxHabitats.setEnabled(true);
         cmboBoxCuidador.setEnabled(true);
@@ -126,11 +115,6 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         setTitle("Registrar especie");
 
         cmboBoxCuidador.setEnabled(false);
-        cmboBoxCuidador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmboBoxCuidadorActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Nombre en español:");
 
@@ -204,11 +188,6 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
 
         btnGuardar.setText("Guardar");
         btnGuardar.setEnabled(false);
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
 
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -318,15 +297,6 @@ public class DlgRegistrarEspecie extends javax.swing.JDialog {
         // TODO add your handling code here:
         verificarNombre(txtNombreEspañol.getText());
     }//GEN-LAST:event_btnVerificarNombreActionPerformed
-
-    private void cmboBoxCuidadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboBoxCuidadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmboBoxCuidadorActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        agregarEspecie();
-    }//GEN-LAST:event_btnGuardarActionPerformed
 
 //    /**
 //     * @param args the command line arguments
