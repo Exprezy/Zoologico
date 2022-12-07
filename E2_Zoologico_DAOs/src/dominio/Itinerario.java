@@ -1,15 +1,17 @@
 package dominio;
 
 public class Itinerario {
+
     private long idItinerario, idGuia;
     private int visitasMaximas, numeroZonas;
     private double longitud;
-    private String duracionRecorrido, dias, horas;
+    private String duracionRecorrido, dias, horas, nombre;
 
     public Itinerario() {
     }
 
-    public Itinerario(long idItinerario, long idGuia, int visitasMaximas, int numeroZonas, double longitud, String duracionRecorrido, String dias, String horas) {
+    public Itinerario(long idItinerario, long idGuia, int visitasMaximas, int numeroZonas, 
+            double longitud, String duracionRecorrido, String dias, String horas, String nombre) {
         this.idItinerario = idItinerario;
         this.idGuia = idGuia;
         this.visitasMaximas = visitasMaximas;
@@ -18,6 +20,7 @@ public class Itinerario {
         this.duracionRecorrido = duracionRecorrido;
         this.dias = dias;
         this.horas = horas;
+        this.nombre = nombre;
     }
 
     public long getIdItinerario() {
@@ -83,7 +86,13 @@ public class Itinerario {
     public void setHoras(String horas) {
         this.horas = horas;
     }
-    
-    
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
 }
