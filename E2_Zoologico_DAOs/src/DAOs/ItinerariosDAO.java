@@ -22,33 +22,22 @@ public class ItinerariosDAO {
     no trate de hacer un itinerario si no hay al menos 1 zona.
     Ya que necesitamos una zona para un foreign key
      */
-    public boolean agregar(Itinerario iti, long idZona) {
+    public boolean agregar(Itinerario iti) {
         try {
-            //INSERT INTO `zoologico_dis`.`itinerario` (`iditinerario`, `duracionRecorrido`, `longitud`, `visitasMaximas`, `numeroZonas`, `guia`) VALUES ('1', '30 horas', '24', '6', '2', '3');
-            String query = "INSERT INTO `zoologico_dis`.`itinerario` (`iditinerario`, `duracionRecorrido`, `longitud`, `visitasMaximas`, `numeroZonas`, `guia`) "
-                    + "VALUES ('" + iti.getIdItinerario() + "', '"
-                    + iti.getDuracionRecorrido() + "', '"
-                    + iti.getLongitud() + "', '"
-                    + iti.getLongitud() + "', '"
-                    + iti.getVisitasMaximas() + "', '"
-                    + iti.getNumeroZonas() + "', '"
-                    + iti.getIdGuia() + "', '"
-                    + "');";
             Connection con = conexion.crearConexion();
             Statement comando = con.createStatement();
-            comando.executeUpdate(query);
-
-            //INSERT INTO `zoologico_dis`.`zonaitinerario` (`idzonaItinerario`, `zona`, `itinerario`) VALUES ('3', '2', '4');
-            /*Por default, para el ID de la entrada de zonaItinerario va a utilizar el ID del itinerario, esto es una muy
-            mala idea pero por mientras se queda asi hasta que haya otra forma de darle un ID unico (probablemente obtener el 
-            numero total de entradas de zonaItinerario+1 y hacer eso el ID).
-             */
-            query = "IINSERT INTO `zoologico_dis`.`zonaitinerario` (`idzonaItinerario`, `zona`, `itinerario`) "
-                    + "VALUES ('" + iti.getIdItinerario() + "', '"
-                    + idZona + "', '"
-                    + iti.getIdItinerario()
-                    + "');";
-            comando.executeUpdate(query);
+            //INSERT INTO `zoologico_dis`.`itinerario` (`iditinerario`, `duracionRecorrido`, `longitud`, `visitasMaximas`, `numeroZonas`, `guia`) VALUES ('1', '30 horas', '24', '6', '2', '3');
+            String codigoSQL = String.format("INSERT INTO itinerario(iditinerario, duracionRecorrido, longitud, visitasMaximas, numeroZonas, horas, dias, nombre, guia) VALUES('%d', '%s', '%f', '%d', '%d', '%s', '%s', '%s', '%d')",
+                    iti.getIdItinerario(),
+                    iti.getDuracionRecorrido(),
+                    iti.getLongitud(),
+                    iti.getVisitasMaximas(),
+                    iti.getNumeroZonas(),
+                    iti.getHoras(),
+                    iti.getDias(),
+                    iti.getNombre(),
+                    iti.getIdGuia());
+            comando.executeUpdate(codigoSQL);
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -118,7 +107,8 @@ public class ItinerariosDAO {
                 long idGuia = resultado.getLong("guia");
                 String dias = resultado.getString("dias");
                 String horas = resultado.getString("horas");
-                itinerario = new Itinerario(iditinerario, idGuia, visitasMaximas, numeroZonas, longitud, duracionRecorrido, dias, horas);
+                String nombre = resultado.getString("nombre");
+                itinerario = new Itinerario(iditinerario, idGuia, visitasMaximas, numeroZonas, longitud, duracionRecorrido, dias, horas, nombre);
                 listaItinerarios.add(itinerario);
             }
             conexion.close();
